@@ -123,3 +123,32 @@ describe("Test cases for getCarAccessories", () => {
     });
   });
 });
+
+describe("getTotalPriceOfCarsByModel", () => {
+  const storage = new CarStorage(cars);
+  describe("Tests 1-4", () => {
+    const testValues = [
+      // model   result
+      ["chrome", 123],
+      ["gold", 36],
+      ["GT", 15],
+      ["silver", 215],
+    ];
+
+    test.each(testValues)("%s returns %s", (model, result) => {
+      expect(storage.getTotalPriceOfCarsByModel(model)).toEqual(result);
+    });
+
+    test("Test 5: searchValue not found", () => {
+      expect(() => storage.getTotalPriceOfCarsByModel("x")).toThrowError(
+        "nothing found with given searchValue"
+      );
+    });
+
+    test("Test 6: missing parameter", () => {
+      expect(() => storage.getTotalPriceOfCarsByModel()).toThrow(
+        "missing parameter"
+      );
+    });
+  });
+});

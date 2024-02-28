@@ -24,4 +24,24 @@ module.exports = class CarStorage {
     }
     return carAccessoriesFound;
   }
+
+  getTotalPriceOfCarsByModel(searchValue) {
+    if (arguments.length < 1) throw new Error("missing parameter");
+
+    let carsFound = [];
+
+    for (const car of this.#storage) {
+      if (car.model === searchValue) {
+        carsFound.push(car.price);
+      }
+    }
+
+    const totalPrice = carsFound.reduce((acc, price) => acc + price, 0);
+
+    if (carsFound.length === 0) {
+      throw new Error("nothing found with given searchValue");
+    }
+
+    return totalPrice;
+  }
 };
