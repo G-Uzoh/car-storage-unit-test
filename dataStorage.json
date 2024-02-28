@@ -1,0 +1,57 @@
+[
+    {
+      "carID": 1,
+      "model": "chrome",
+      "price": 123,
+      "rating": "***",
+      "accessories": ["clock", "speedometer", "repair set"],
+      "details": {
+        "powerSource": "gasoline",
+        "consumptionPer100km": 1,
+        "notes": "no comments"
+      }
+    },
+    {
+      "carID": 2,
+      "model": "gold",
+      "price": 36,
+      "rating": "**",
+      "accessories": ["coffee warmer", "clock", "radar"],
+      "details": {
+        "powerSource": "pushing",
+        "consumptionPer100km": 7,
+        "notes": "old model"
+      }
+    },
+    {
+      "carID": 3,
+      "model": "GT",
+      "price": 15,
+      "rating": "***",
+      "accessories": ["warranty", "radar", "coffee warmer"],
+      "details": {
+        "powerSource": "pedalling",
+        "consumptionPer100km": 1,
+        "notes": "-"
+      }
+    },
+    {
+      "carID": 4,
+      "model": "silver",
+      "price": 15,
+      "rating": "*****",
+      "accessories": ["speedometer", "hook", "clock"],
+      "details": {
+        "powerSource": "gasoline",
+        "consumptionPer100km": 6,
+        "notes": "low emission"
+      }
+    },
+    {
+      "carID": 5,
+      "model": "silver",
+      "price": 200,
+      "rating": "**",
+      "accessories": ["hook", "warranty", "coffee warmer"]
+    }
+  ]
