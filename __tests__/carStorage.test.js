@@ -102,3 +102,24 @@ describe("Test cases for getAllCarsByModel", () => {
     expect(() => storage.getAllCarsByModel()).toThrow("missing parameter");
   });
 });
+
+describe("Test cases for getCarAccessories", () => {
+  const storage = new CarStorage(cars);
+
+  describe("Tests 1-7", () => {
+    const testValues = [
+      // carID    result
+      [1, ["clock", "speedometer", "repair set"]],
+      [2, ["coffee warmer", "clock", "radar"]],
+      [3, ["warranty", "radar", "coffee warmer"]],
+      [4, ["speedometer", "hook", "clock"]],
+      [5, ["hook", "warranty", "coffee warmer"]],
+      ["x", []],
+      ["", []],
+    ];
+
+    test.each(testValues)("%s returns %s", (carID, result) => {
+      expect(storage.getCarAccessories(carID)).toEqual(result);
+    });
+  });
+});

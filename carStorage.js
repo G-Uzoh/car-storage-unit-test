@@ -13,4 +13,15 @@ module.exports = class CarStorage {
 
     return this.#storage.filter((car) => car.model === searchValue);
   }
+
+  getCarAccessories(searchKey) {
+    let carAccessoriesFound = [];
+
+    for (const car of this.#storage) {
+      if (car.carID === searchKey) {
+        carAccessoriesFound = car.accessories;
+      }
+    }
+    return carAccessoriesFound;
+  }
 };
