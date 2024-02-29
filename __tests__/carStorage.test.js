@@ -177,3 +177,95 @@ describe("Test cases for getRatingOfCarByCarName", () => {
     );
   });
 });
+
+describe("Test cases for getACarMatchingCarID", () => {
+  const storage = new CarStorage(cars);
+
+  test("Test 1: searchKey 1", () => {
+    const result = {
+      carID: 1,
+      model: "chrome",
+      price: 123,
+      rating: "***",
+      accessories: ["clock", "speedometer", "repair set"],
+      details: {
+        powerSource: "gasoline",
+        consumptionPer100km: 1,
+        notes: "no comments",
+      },
+    };
+
+    expect(storage.getACarMatchingCarID(1)).toEqual(result);
+  });
+
+  test("Test 2: searchKey 2", () => {
+    const result = {
+      carID: 2,
+      model: "gold",
+      price: 36,
+      rating: "**",
+      accessories: ["coffee warmer", "clock", "radar"],
+      details: {
+        powerSource: "pushing",
+        consumptionPer100km: 7,
+        notes: "old model",
+      },
+    };
+
+    expect(storage.getACarMatchingCarID(2)).toEqual(result);
+  });
+
+  test("Test 3: searchKey 3", () => {
+    const result = {
+      carID: 3,
+      model: "GT",
+      price: 15,
+      rating: "***",
+      accessories: ["warranty", "radar", "coffee warmer"],
+      details: {
+        powerSource: "pedalling",
+        consumptionPer100km: 1,
+        notes: "-",
+      },
+    };
+
+    expect(storage.getACarMatchingCarID(3)).toEqual(result);
+  });
+
+  test("Test 4: searchKey 4", () => {
+    const result = {
+      carID: 4,
+      model: "silver",
+      price: 15,
+      rating: "*****",
+      accessories: ["speedometer", "hook", "clock"],
+      details: {
+        powerSource: "gasoline",
+        consumptionPer100km: 6,
+        notes: "low emission",
+      },
+    };
+
+    expect(storage.getACarMatchingCarID(4)).toEqual(result);
+  });
+
+  test("Test 5: searchKey 5", () => {
+    const result = {
+      carID: 5,
+      model: "silver",
+      price: 200,
+      rating: "**",
+      accessories: ["hook", "warranty", "coffee warmer"],
+    };
+
+    expect(storage.getACarMatchingCarID(5)).toEqual(result);
+  });
+
+  test("Test 6: searchKey x", () => {
+    expect(storage.getACarMatchingCarID("x")).toEqual(null);
+  });
+
+  test("Test 7: missing parameter", () => {
+    expect(() => storage.getACarMatchingCarID()).toThrow("missing parameter");
+  });
+});

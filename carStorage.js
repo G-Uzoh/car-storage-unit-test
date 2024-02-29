@@ -56,4 +56,17 @@ module.exports = class CarStorage {
     }
     return carsFound.join("\n");
   }
+
+  getACarMatchingCarID(searchKey) {
+    if (arguments.length < 1) throw new Error("missing parameter");
+
+    let carFound = null;
+    for (const car of this.#storage) {
+      if (car.carID === searchKey) {
+        carFound = car;
+        break;
+      }
+    }
+    return carFound;
+  }
 };
