@@ -44,4 +44,16 @@ module.exports = class CarStorage {
 
     return totalPrice;
   }
+
+  getRatingOfCarByCarName(searchKey) {
+    if (arguments.length < 1) throw new Error("missing parameter");
+
+    let carsFound = [];
+    for (const car of this.#storage) {
+      if (car.model === searchKey) {
+        carsFound.push(car.rating);
+      }
+    }
+    return carsFound.join("\n");
+  }
 };

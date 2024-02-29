@@ -124,7 +124,7 @@ describe("Test cases for getCarAccessories", () => {
   });
 });
 
-describe("getTotalPriceOfCarsByModel", () => {
+describe("Test cases for getTotalPriceOfCarsByModel", () => {
   const storage = new CarStorage(cars);
   describe("Tests 1-4", () => {
     const testValues = [
@@ -150,5 +150,30 @@ describe("getTotalPriceOfCarsByModel", () => {
         "missing parameter"
       );
     });
+  });
+});
+
+describe("Test cases for getRatingOfCarByCarName", () => {
+  const storage = new CarStorage(cars);
+
+  describe("Tests 1-5", () => {
+    const testValues = [
+      // model   result
+      ["chrome", "***"],
+      ["gold", "**"],
+      ["GT", "***"],
+      ["silver", "*****\n**"],
+      ["x", ""],
+    ];
+
+    test.each(testValues)("%s returns %s", (model, result) => {
+      expect(storage.getRatingOfCarByCarName(model)).toEqual(result);
+    });
+  });
+
+  test("Test 6: missing parameter", () => {
+    expect(() => storage.getRatingOfCarByCarName()).toThrow(
+      "missing parameter"
+    );
   });
 });
