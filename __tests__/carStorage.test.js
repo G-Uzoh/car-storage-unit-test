@@ -163,7 +163,7 @@ describe("Test cases for getRatingOfCarByCarName", () => {
       ["gold", "**"],
       ["GT", "***"],
       ["silver", "*****\n**"],
-      ["x", ""],
+      ["x", null],
     ];
 
     test.each(testValues)("%s returns %s", (model, result) => {

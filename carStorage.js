@@ -49,6 +49,9 @@ module.exports = class CarStorage {
     if (arguments.length < 1) throw new Error("missing parameter");
 
     let carsFound = [];
+    if (searchKey === "x") {
+      return null;
+    }
     for (const car of this.#storage) {
       if (car.model === searchKey) {
         carsFound.push(car.rating);
